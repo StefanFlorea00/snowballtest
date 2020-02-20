@@ -11,3 +11,22 @@ body{
 img {
     max-width: 100%;
 }
+
+.resortCard {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkblue;
+    max-width: 500px;
+    padding: 1rem;
+    margin: 1rem;
+
+}
+
+
+main {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 1rem;
+    grid-auto-rows: 1fr;
+}
