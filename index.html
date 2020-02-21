@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,400,400i,700,700i|Racing+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,25 +14,42 @@
 <header>
    <nav>
     <ul>
-        <li>Country</li>
-        <li>Slopes</li>
-        <li>Skirental</li>
-        <li>Afterski</li>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Search</li>
     </ul>
     </nav>
 </header>
 
+<div class="logoImgWrapper">
+<img class="logoImg" src="gfx/img/resort_image_example.jpg">
+<h1 class="logoText">SNOWPEDIA</h1>
+</div>
 
-
-
-
-
-
+<section class="searchSection">
+    <h2>Find resorts:</h2>
+    <input type="text" id="search" name="search">
+</section>
 
 
 <!--main 80-120-->
 
  <main>
+        <template id="resortTemplate">
+            <article class="resortCard">
+                <h1>Resort: <span></span></h1>
+                <div class="resortImgWrapper">
+                    <img src="gfx/img/resort_image_exampleee.jpg" alt="resort image"/></div>
+                    <div class="resortDetails">
+                <p class="max_height">Height: <span></span></p>
+                <p class="slope_lenght">Slope length: <span></span></p>
+                <p class="distance">Distance from CPH: <span></span></p>
+                </div>
+            </article>
+        </template>
+
+<!--
         <template id="resortTemplate">
             <article class="resortCard">
                 <h1>Car: </h1>
@@ -51,6 +69,7 @@
                 <p class="afterski">Afterski: <span></span></p>
             </article>
         </template>
+-->
 
     </main>
 

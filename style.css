@@ -14,19 +14,138 @@ img {
 
 .resortCard {
     display: flex;
-    flex-direction: column;
-    border: 2px solid darkblue;
+    flex-flow: column wrap;
+    min-width: 500px;
     max-width: 500px;
-    padding: 1rem;
+    padding: 0rem;
     margin: 1rem;
+    font-family: 'Nunito';
+    background-color: aquamarine;
+    box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.3);
+    opacity: 0.8;
+    transition: 0.3s all;
+}
+
+.resortCard:hover{
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.resortCard h1{
+    position:absolute;
+    margin-left: 2rem;
+    color: white;
+    text-shadow: 1px 1px #666666;
+}
+
+.resortCard .resortImgWrapper{
+    height: 15rem;
+    overflow: hidden;
+}
+
+.resortCard img{
 
 }
 
+.resortCard .resortDetails{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    text-shadow: 1px 1px #999999;
+}
 
-main {
+nav {
+    background-color: aquamarine;
+    padding: 10px;
+    height: 4rem;
+}
+
+nav ul {
+    font-family: 'Nunito';
+    font-size: 1.2rem;
+    color: white;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    margin: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li:last-child{
+    margin-left: auto;
+}
+
+.logoImg{
+    transform: translate(0px, -10%);
+}
+
+.logoImgWrapper{
+    text-align: center;
+    position: relative;
+    height: 20rem;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 50px 2px rgba(0,0,0,0.5);
+}
+
+.logoImgWrapper > .logoText{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: white;
+    font-family: 'Racing Sans One';
+    text-shadow: 2px 2px #000000;
+}
+
+.searchSection{
+    font-family: 'Nunito';
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.searchSection h2{
+    font-size: 2rem;
+}
+
+.searchSection input{
+    width: 20rem;
+    height: 2.5rem;
+    border: 1.5px solid black;
+  border-radius: 4px;
+}
+
+section{
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 1rem;
     grid-auto-rows: 1fr;
+}
+
+main section .sectionTitle{
+    text-align: center;
+    grid-column: 1/-1;
+    font-family: 'Nunito';
+    font-size: 2rem;
+}
+
+main {
+}
+
+main h2{
+}
+
+footer{
+    background-color: aquamarine;
+    height: 8rem;
+    color: white;
+    padding: 10px;
 }
