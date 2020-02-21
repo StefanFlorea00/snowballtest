@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 
 
-<!--header 10-80-->
-<header>
-   <nav>
-    <ul>
-        <li>Country</li>
-        <li>Slopes</li>
-        <li>Skirental</li>
-        <li>Afterski</li>
-    </ul>
-    </nav>
-</header>
+    <!--header 10-80-->
+    <header>
+        <nav>
+            <ul>
+                <li>Country</li>
+                <li>Slopes</li>
+                <li>Skirental</li>
+                <li>Afterski</li>
+            </ul>
+        </nav>
+    </header>
 
 
 
@@ -29,15 +31,15 @@
 
 
 
-<!--main 80-120-->
+    <!--main 80-120-->
 
- <main>
+    <main>
         <template id="resortTemplate">
             <article class="resortCard">
                 <h1>Car: </h1>
                 <p class="country">Country:<span></span></p>
                 <p class="resort">Resort name:<span></span></p>
-                <img src="gfx/img/resort_image_exampleee.jpg" alt="resort image"/>
+                <img src="gfx/img/resort_image_exampleee.jpg" alt="resort image" />
                 <p class="max_height">Height: <span></span></p>
                 <p class="slope_lenght">Slopes lenght: <span></span></p>
                 <p class="blue_slopes">Blue slopes: <span></span></p>
@@ -49,9 +51,34 @@
                 <p class="distance">Distance from CPH: <span></span></p>
                 <p class="public_transportation">Get there by train/bus: <span></span></p>
                 <p class="afterski">Afterski: <span></span></p>
+                <button>Read more</button>
             </article>
         </template>
 
+        <div class="modal-background">
+            <div class="modal-content">
+                <h3 class="resort-name">Name</h3>
+                <p class="modal-country">Country</p>
+                                <img src="" alt="" class="modal-image-big">
+
+                <section class="slopes">
+                    <p class="modal-green"><span></span> green slopes</p>
+                    <p class="modal-blue"><span></span> blue slopes</p>
+                    <p class="modal-red"><span></span> red slopes</p>
+                    <p class="modal-black"><span></span> black slopes</p>
+                </section>
+
+                <div class="description-map">
+                    <p class="resort-description">Long description</p>
+                    <img src="" alt="" class="modal-image-small">
+                </div>
+                <figure><img class=" child-friendly" src="" alt="icon"></figure>
+                <figure><img class="ski-rental" src="" alt="icon"></figure>
+                <figure><img class="afterski" src="" alt="icon"></figure>
+                <p class="modal-price">Skipass price <span></span>dkk/day</p>
+
+            </div>
+        </div>
     </main>
 
 
@@ -60,16 +87,15 @@
 
 
 
-<!--footer 120-160-->
+    <!--footer 120-160-->
 
-<footer>
-   <h1>Facebook</h1>
-</footer>
+    <footer>
+        <h1>Facebook</h1>
+    </footer>
 
 </body>
 
 
 <script src="script.js"></script>
+
 </html>
-
-
