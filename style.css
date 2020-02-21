@@ -60,7 +60,10 @@ img {
 }
 
 nav {
-    background-color: #5B98D7;
+    margin-bottom: -5rem;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
     padding: 10px;
     height: 4rem;
 }
@@ -75,6 +78,7 @@ nav ul {
 }
 
 nav ul li {
+
     padding: 10px 30px;
     transition: 0.3s;
 }
@@ -104,7 +108,7 @@ nav ul li:last-child{
 }
 
 .logoImg{
-    transform: translate(0px, -10%);
+    transform: translate(0px, -20%);
 }
 
 .logoImgWrapper{
