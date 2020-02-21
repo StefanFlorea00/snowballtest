@@ -6,6 +6,7 @@
 
 body{
     margin: 0;
+    font-family: 'Open Sans'
 }
 
 img {
@@ -20,7 +21,6 @@ img {
     padding: 0rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-family: 'Nunito';
     background-color: #5B98D7;
     box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.3);
     opacity: 0.8;
@@ -65,7 +65,6 @@ nav {
 }
 
 nav ul {
-    font-family: 'Nunito';
     font-size: 1.2rem;
     color: white;
     display: flex;
@@ -115,7 +114,6 @@ nav ul li:last-child{
 
 .searchSection{
     display: block;
-    font-family: 'Nunito';
     text-align: center;
     margin-top: 3rem;
     margin-bottom: 5rem;
@@ -130,7 +128,6 @@ nav ul li:last-child{
     height: 2.5rem;
     border: 1.5px solid black;
     border-radius: 4px;
-    font-family: 'Nunito';
     padding: 5px;
     font-size: 1.4rem;
 }
@@ -146,7 +143,6 @@ section{
 main section .sectionTitle{
     text-align: center;
     grid-column: 1/-1;
-    font-family: 'Nunito';
     font-size: 2rem;
 }
 
