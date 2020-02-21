@@ -19,12 +19,12 @@ img {
     min-width: 500px;
     max-width: 500px;
     padding: 0rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem auto 4rem auto;
     background-color: #5B98D7;
     box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.3);
     opacity: 1;
     transition: 0.3s all;
+
 }
 
 .resortCard:hover{
@@ -47,6 +47,7 @@ img {
 }
 
 .resortCard img{
+
 
 }
 
@@ -151,8 +152,7 @@ main section .sectionTitle{
     font-size: 2rem;
 }
 
-main {
-}
+
 
 main h2{
 }
