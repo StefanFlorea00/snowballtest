@@ -18,7 +18,8 @@ img {
     min-width: 500px;
     max-width: 500px;
     padding: 0rem;
-    margin: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     font-family: 'Nunito';
     background-color: #5B98D7;
     box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.3);
@@ -137,8 +138,8 @@ nav ul li:last-child{
 section{
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 0.5rem;
     grid-auto-rows: 1fr;
 }
 
