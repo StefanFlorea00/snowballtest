@@ -54,6 +54,7 @@ function addResort(data) {
     clone.querySelector(".resortCard h1").textContent = data.gsx$resort.$t;
     clone.querySelector(".max_height span").textContent = data.gsx$maxheight.$t;
     clone.querySelector(".slope_lenght span").textContent = data.gsx$slopelength.$t;
+    clone.querySelector(".distance span").textContent = data.gsx$distance.$t;
     clone.querySelector("img").src = data.gsx$image.$t;
     //    append the clone
     try{
