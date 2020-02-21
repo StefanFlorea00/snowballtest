@@ -2,6 +2,13 @@
 const link = "https://spreadsheets.google.com/feeds/list/1FSy3AueANJmJWDjB3LnMtNISPU4uvWdPvdfRWyeHJAk/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
 
+const modal = document.querySelector(".modal-background");
+modal.addEventListener("click", (e) => {
+    if (e.target.className === "modal-background") {
+        document.querySelector(".modal-background").style.display = "none";
+    }
+})
+
 //fetch the Json data
 function getData() {
     fetch(link)
@@ -41,7 +48,6 @@ function createSections(singleRowData){
     }
 }
 
-
 function addResort(data) {
 
     //grab the template
@@ -56,7 +62,30 @@ function addResort(data) {
     clone.querySelector(".slope_lenght span").textContent = data.gsx$slopelength.$t;
     clone.querySelector(".distance span").textContent = data.gsx$distance.$t;
     clone.querySelector("img").src = data.gsx$image.$t;
-    //    append the clone
+
+    clone.querySelector(".resortCard").addEventListener("click", () => {
+        console.log("click", data);
+        showDetails(data);
+    });
+
+    function showDetails(data) {
+        console.log("data");
+        document.querySelector(".modal-background").style.display = "block";
+        modal.querySelector(".modal-image-big").src = data.gsx$image.$t;
+        modal.querySelector(".resort-name").textContent = data.gsx$resort.$t;
+        modal.querySelector(".modal-country").textContent = data.gsx$country.$t;
+
+        //        modal.querySelector(".resort-description").textContent=data.description;
+        modal.querySelector(".modal-green span").textContent = data.gsx$greenslopes.$t;
+        modal.querySelector(".modal-blue span").textContent = data.gsx$blueslopes.$t;
+        modal.querySelector(".modal-red span").textContent = data.gsx$redslopes.$t;
+        modal.querySelector(".modal-black span").textContent = data.gsx$blackslopes.$t;
+        modal.querySelector(".modal-image-small").src = data.gsx$mapimage.$t;
+        modal.querySelector(".modal-price span").textContent = data.gsx$skipass;
+
+
+    }
+
     try{
     let sectionToAdd = data.gsx$country.$t;
     document.querySelector('#' + sectionToAdd).appendChild(clone);
