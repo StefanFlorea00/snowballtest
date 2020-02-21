@@ -14,17 +14,32 @@ function handleData(data) {
     const myData = data.feed.entry;
 
     console.log("myData - console:");
-    console.log(myData)
-    myData.forEach(showData)
+    console.log(myData);
+    myData.forEach(createSections);
+    myData.forEach(showData);
 }
 
 function showData(singleRowData) {
-    console.log("single Row Data - console");
     console.log(singleRowData.gsx$country.$t);
     addResort(singleRowData);
-
 }
-;
+
+function createSections(singleRowData){
+        const mainBody = document.querySelector("main");
+    console.warn("AAAA" + singleRowData.gsx$country.$t);
+    if (document.querySelector(`#${singleRowData.gsx$country.$t}`) == null) {
+        console.warn("[INFO] ADDED SECTION " + singleRowData.gsx$country.$t);
+        const createdSection = document.createElement("section");
+        const createdh2 = document.createElement("h2");
+
+        createdSection.setAttribute("id", `${singleRowData.gsx$country.$t}`);
+        createdh2.setAttribute("class", `sectionTitle`);
+        createdh2.textContent = `${singleRowData.gsx$country.$t}`;
+
+        mainBody.appendChild(createdSection);
+        createdSection.appendChild(createdh2);
+    }
+}
 
 
 function addResort(data) {
@@ -35,18 +50,17 @@ function addResort(data) {
 
     //make a copy
     const clone = template.cloneNode(true);
-    console.log("here");
-
     //change the content
-    clone.querySelector(".country span").textContent = data.gsx$country.$t;
-    clone.querySelector(".resort").textContent = data.gsx$resort.$t;
-    clone.querySelector(".max_height").textContent = data.gsx$maxheight.$t;
-    clone.querySelector(".slope_lenght").textContent = data.gsx$slopelength.$t;
+    clone.querySelector(".resortCard h1").textContent = data.gsx$resort.$t;
+    clone.querySelector(".max_height span").textContent = data.gsx$maxheight.$t;
+    clone.querySelector(".slope_lenght span").textContent = data.gsx$slopelength.$t;
     clone.querySelector("img").src = data.gsx$image.$t;
-
-
-
     //    append the clone
-    document.querySelector("main").appendChild(clone);
-
+    try{
+    let sectionToAdd = data.gsx$country.$t;
+    document.querySelector('#' + sectionToAdd).appendChild(clone);
+    }
+    catch(err){
+        console.log(err.message);
+    }
 }
