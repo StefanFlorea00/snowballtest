@@ -68,36 +68,38 @@ main {
     text-align:center;
     justify-content: space-between;
     padding: 3rem;
+    width: 80%;
+    margin: 0 auto;
 }
 .green {
     background-color:  forestgreen;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0 auto .5rem auto;
 }
 
 .blue {
     background-color: dodgerblue;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0 auto .5rem auto;
 }
 
 .red {
     background-color:  red;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0 auto .5rem auto;
 }
 
 .black {
     background-color:  black;
     border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0 auto .5rem auto;
 }
 .description-map {
@@ -111,4 +113,8 @@ main {
 float: right;
 }
 
+.modal-country {
+    margin-top: -1rem;
+
+}
 
