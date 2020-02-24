@@ -68,6 +68,7 @@ function addResort(data) {
         /*const info = document.createElement('div');
         info.classList.add('popin')*/
         e.currentTarget.parentNode.insertBefore(document.querySelector('.popin'), e.currentTarget.nextSibling);
+        document.querySelector('.popin').style.display = "block";
        // showDetails(data);
     });
 
