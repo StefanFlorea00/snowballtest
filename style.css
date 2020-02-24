@@ -148,8 +148,11 @@ section{
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     grid-gap: 0.5rem;
     grid-auto-rows: 1fr;
+    grid-auto-flow: row dense;
 }
-
+.popin {
+    grid-column: 1/-1;
+}
 main section .sectionTitle{
     text-align: center;
     grid-column: 1/-1;

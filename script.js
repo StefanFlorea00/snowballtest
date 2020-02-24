@@ -63,9 +63,12 @@ function addResort(data) {
     clone.querySelector(".distance span").textContent = data.gsx$distance.$t;
     clone.querySelector("img").src = data.gsx$image.$t;
 
-    clone.querySelector(".resortCard").addEventListener("click", () => {
-        console.log("click", data);
-        showDetails(data);
+    clone.querySelector(".resortCard").addEventListener("click", (e) => {
+        console.log("click", e.currentTarget.parentElement);
+        /*const info = document.createElement('div');
+        info.classList.add('popin')*/
+        e.currentTarget.parentNode.insertBefore(document.querySelector('.popin'), e.currentTarget.nextSibling);
+       // showDetails(data);
     });
 
     function showDetails(data) {
