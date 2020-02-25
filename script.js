@@ -22,15 +22,72 @@ function handleData(data) {
 
     console.log("[INFO] Found resorts:", JSONdata);
 
-    JSONdata.forEach(createSections);
-    JSONdata.forEach(showData);
+    let selectedAlready = false;
+    document.querySelector("#sort").addEventListener("change", (e) => {
+
+        if(document.querySelector("#sort").value == "Country" && !selectedAlready){
+                JSONdata.forEach(createSectionsCountry);
+                JSONdata.forEach(showData);
+                selectedAlready = true;
+        }
+        else if (document.querySelector("#sort").value == "Name") {
+        }
+        else if (document.querySelector("#sort").value == "Price"){
+                JSONdata.forEach(deleteSections);
+                JSONdata.forEach(createSectionsPrice);
+                JSONdata.forEach(showData);
+        }
+        else {
+            selectedAlready = false;
+
+        }
+
+
+    });
 }
 
 function showData(singleRowData) {
     addResort(singleRowData);
 }
 
-function createSections(singleRowData) {
+let sectionsArray = [];
+function createSectionsPrice(singleRowData) {
+
+    const mainBody = document.querySelector("main");
+
+    if (document.querySelector(`#price${singleRowData.gsx$skipass.$t}`) == null) {
+
+        console.warn("[INFO] ADDED SECTION " + singleRowData.gsx$skipass.$t);
+        const createdSection = document.createElement("section");
+        const createdh2 = document.createElement("h2");
+
+        createdSection.setAttribute("id", `${singleRowData.gsx$skipass.$t}`);
+        createdh2.setAttribute("class", `sectionTitle`);
+        createdh2.textContent = `${singleRowData.gsx$skipass.$t}`;
+
+        sectionsArray.push(createdSection);
+
+        sectionsArray.sort( function(a,b) {
+            console.log(parseInt(a.id)-parseInt(b.id));
+                return parseInt(a.id)-parseInt(b.id);
+        });
+
+        sectionsArray.forEach(el => {
+            mainBody.appendChild(el);
+        })
+
+        console.log(sectionsArray);
+
+//        for(let i=0;i<=sectionsArray.length;i++){
+//            mainBody.appendChild(sectionsArray[i]);
+////            sectionsArray[i].appendChild(createdh2);
+//            }
+
+
+    }
+}
+
+function createSectionsCountry(singleRowData) {
 
     const mainBody = document.querySelector("main");
 
@@ -46,6 +103,15 @@ function createSections(singleRowData) {
 
         mainBody.appendChild(createdSection);
         createdSection.appendChild(createdh2);
+    }
+}
+
+function deleteSections(singleRowData) {
+    section = document.querySelector(`#${singleRowData.gsx$country.$t}`);
+    console.log(document.querySelector(`#${singleRowData.gsx$country.$t}`));
+
+    if (section != null) {
+        section.parentNode.removeChild(section);
     }
 }
 
@@ -70,8 +136,18 @@ function addResort(jsonResort) {
 
     //append template
     try {
-        let sectionToAdd = jsonResort.gsx$country.$t;
-        document.querySelector('#' + sectionToAdd).appendChild(clone);
+        if(document.querySelector("#sort").value == "Country" && !selectedAlready){
+                    let sectionToAdd = jsonResort.gsx$country.$t;
+        }
+        else if (document.querySelector("#sort").value == "Name") {
+                    let sectionToAdd = jsonResort.gsx$resort.$t;
+                    console.log(sectionToAdd);
+                    document.querySelector('#' + sectionToAdd).appendChild(clone);
+        }
+        else if (document.querySelector("#sort").value == "Price"){
+                    let sectionToAdd = jsonResort.gsx$skipass.$t;
+                    document.querySelector('#price' + sectionToAdd).appendChild(clone);
+        }
     } catch (err) {
         console.log(err.message);
     }
