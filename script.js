@@ -86,7 +86,21 @@ function addExtendedDesc(clone, jsonResort) {
         document.querySelector('.extendedDesc').style.display = "block";
         document.querySelector('.arrow-up').style.left = e.pageX + "px";
 
+        var isInViewport = function (elem) {
+            var bounding = elem.getBoundingClientRect();
+            return (
+                bounding.top >= 0 &&
+                bounding.left >= 0 &&
+                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            };
+
         showExtendedDetails(jsonResort);
+
+        if (!isInViewport(document.querySelector('.extendedDesc'))) {
+            scrollTo(pageXOffset,pageYOffset+300);
+        }
     });
 }
 

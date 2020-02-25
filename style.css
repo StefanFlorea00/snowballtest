@@ -6,6 +6,7 @@
 
 body {
     margin: 0;
+    scroll-behavior: smooth;
     font-family: 'Open Sans'
 }
 
@@ -182,12 +183,13 @@ section {
 
 .extendedDesc {
     grid-column: 1/-1;
-    background-color: lightblue;
+    background-color: #edf5ff;
     display: none;
     justify-self: center;
     animation: .3s open ease-in reverse forwards;
     padding: 1rem;
     position: relative;
+/*    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);*/
 }
 
 .extendedDesc .resortIcons img {
@@ -206,7 +208,7 @@ section {
     border-right: 2rem solid transparent;
     position: absolute;
     top: -2rem;
-    border-bottom: 2rem solid lightblue;
+    border-bottom: 2rem solid #edf5ff;
 }
 
 .close {
@@ -277,7 +279,9 @@ footer {
 .modal-blue,
 .modal-red,
 .modal-black {
-    display: inline;
+    display: block;
+    text-align: center;
+    width: 150px;
     /*    margin: 0 10px;*/
 }
 
@@ -285,15 +289,15 @@ footer {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    padding: 3rem;
+    padding: 1rem;
     width: 80%;
-    margin: 0 auto 2rem;
+    margin: 0 auto 0rem;
 }
 
-.slopes div {
+.slopes div .red, .blue, .green, .black {
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     margin: 0 auto .5rem auto;
 }
 
@@ -338,4 +342,31 @@ footer {
 .extendedPrice {
     font-size: 2rem;
     text-align: center;
+}
+
+.descButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.descButtons button{
+    margin: 0 1rem;
+    height: 3rem;
+    width: 10rem;
+    background-color:#ffa200;
+	display:inline-block;
+	cursor:pointer;
+    border: none;
+	color:#ffffff;
+	font-family:'Open sans';
+	font-size:1rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #665c28;
+}
+.descButtons button:hover {
+	background-color:#bd9b2a;
+}
+.descButtons button:active {
+	position:relative;
+	top:1px;
 }
