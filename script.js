@@ -86,13 +86,13 @@ function addExtendedDesc(clone, jsonResort) {
         document.querySelector('.extendedDesc').style.display = "block";
         document.querySelector('.arrow-up').style.left = e.pageX + "px";
 
-        showDetails(jsonResort);
+        showExtendedDetails(jsonResort);
     });
 }
 
-const extendedDesc = document.querySelector(".extendedDesc");
+function showExtendedDetails(jsonResort) {
+    const extendedDesc = document.querySelector(".extendedDesc");
 
-function showDetails(jsonResort) {
     extendedDesc.querySelector("h1").textContent = jsonResort.gsx$resort.$t;
     extendedDesc.querySelector(".modal-green span").textContent = jsonResort.gsx$greenslopes.$t;
     extendedDesc.querySelector(".modal-blue span").textContent = jsonResort.gsx$blueslopes.$t;
