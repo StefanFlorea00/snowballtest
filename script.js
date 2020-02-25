@@ -2,12 +2,12 @@
 const link = "https://spreadsheets.google.com/feeds/list/1FSy3AueANJmJWDjB3LnMtNISPU4uvWdPvdfRWyeHJAk/od6/public/values?alt=json";
 window.addEventListener("DOMContentLoaded", getData);
 
-const modal = document.querySelector(".modal-background");
-modal.addEventListener("click", (e) => {
-    if (e.target.className === "modal-background") {
-        document.querySelector(".modal-background").style.display = "none";
-    }
-})
+//const modal = document.querySelector(".modal-background");
+//modal.addEventListener("click", (e) => {
+//    if (e.target.className === "modal-background") {
+//        document.querySelector(".modal-background").style.display = "none";
+//    }
+//})
 
 //fetch the Json data
 function getData() {
@@ -18,23 +18,24 @@ function getData() {
 
 function handleData(data) {
 
-    const myData = data.feed.entry;
+    const JSONdata = data.feed.entry;
 
-    console.log("myData - console:");
-    console.log(myData);
-    myData.forEach(createSections);
-    myData.forEach(showData);
+    console.log("[INFO] Found resorts:", JSONdata);
+
+    JSONdata.forEach(createSections);
+    JSONdata.forEach(showData);
 }
 
 function showData(singleRowData) {
-    console.log(singleRowData.gsx$country.$t);
     addResort(singleRowData);
 }
 
-function createSections(singleRowData){
-        const mainBody = document.querySelector("main");
-    console.warn("AAAA" + singleRowData.gsx$country.$t);
+function createSections(singleRowData) {
+
+    const mainBody = document.querySelector("main");
+
     if (document.querySelector(`#${singleRowData.gsx$country.$t}`) == null) {
+
         console.warn("[INFO] ADDED SECTION " + singleRowData.gsx$country.$t);
         const createdSection = document.createElement("section");
         const createdh2 = document.createElement("h2");
@@ -48,7 +49,7 @@ function createSections(singleRowData){
     }
 }
 
-function addResort(data) {
+function addResort(jsonResort) {
 
     //grab the template
     const template = document.querySelector("template").content;
@@ -56,45 +57,52 @@ function addResort(data) {
 
     //make a copy
     const clone = template.cloneNode(true);
+
     //change the content
-    clone.querySelector(".resortCard h1").textContent = data.gsx$resort.$t;
-    clone.querySelector(".max_height span").textContent = data.gsx$maxheight.$t;
-    clone.querySelector(".slope_lenght span").textContent = data.gsx$slopelength.$t;
-    clone.querySelector(".distance span").textContent = data.gsx$distance.$t;
-    clone.querySelector("img").src = data.gsx$image.$t;
+    clone.querySelector(".resortCard h1").textContent = jsonResort.gsx$resort.$t;
+    clone.querySelector(".max_height span").textContent = jsonResort.gsx$maxheight.$t;
+    clone.querySelector(".slope_lenght span").textContent = jsonResort.gsx$slopelength.$t;
+    clone.querySelector(".distance span").textContent = jsonResort.gsx$distance.$t;
+    clone.querySelector("img").src = jsonResort.gsx$image.$t;
 
-    clone.querySelector(".resortCard").addEventListener("click", (e) => {
-        console.log("click", e.currentTarget.parentElement);
-        /*const info = document.createElement('div');
-        info.classList.add('popin')*/
-        e.currentTarget.parentNode.insertBefore(document.querySelector('.popin'), e.currentTarget.nextSibling);
-        document.querySelector('.popin').style.display = "block";
-       // showDetails(data);
-    });
+    //add extended description
+    addExtendedDesc(clone, jsonResort);
 
-    function showDetails(data) {
-        console.log("data");
-        document.querySelector(".modal-background").style.display = "block";
-        modal.querySelector(".modal-image-big").src = data.gsx$image.$t;
-        modal.querySelector(".resort-name").textContent = data.gsx$resort.$t;
-        modal.querySelector(".modal-country").textContent = data.gsx$country.$t;
-
-        //        modal.querySelector(".resort-description").textContent=data.description;
-        modal.querySelector(".modal-green span").textContent = data.gsx$greenslopes.$t;
-        modal.querySelector(".modal-blue span").textContent = data.gsx$blueslopes.$t;
-        modal.querySelector(".modal-red span").textContent = data.gsx$redslopes.$t;
-        modal.querySelector(".modal-black span").textContent = data.gsx$blackslopes.$t;
-        modal.querySelector(".modal-image-small").src = data.gsx$mapimage.$t;
-        modal.querySelector(".modal-price span").textContent = data.gsx$skipass;
-
-
-    }
-
-    try{
-    let sectionToAdd = data.gsx$country.$t;
-    document.querySelector('#' + sectionToAdd).appendChild(clone);
-    }
-    catch(err){
+    //append template
+    try {
+        let sectionToAdd = jsonResort.gsx$country.$t;
+        document.querySelector('#' + sectionToAdd).appendChild(clone);
+    } catch (err) {
         console.log(err.message);
     }
+}
+
+function addExtendedDesc(clone, jsonResort) {
+    clone.querySelector(".resortCard").addEventListener("click", (e) => {
+        console.log("[INFO] clicked on:", e.currentTarget.parentElement);
+
+        e.currentTarget.parentNode.insertBefore(document.querySelector('.extendedDesc'), e.currentTarget.nextSibling);
+
+        document.querySelector('.extendedDesc').style.display = "block";
+        document.querySelector('.arrow-up').style.left = e.pageX + "px";
+
+        showDetails(jsonResort);
+    });
+}
+
+const extendedDesc = document.querySelector(".extendedDesc");
+
+function showDetails(jsonResort) {
+    extendedDesc.querySelector("h1").textContent = jsonResort.gsx$resort.$t;
+    extendedDesc.querySelector(".modal-green span").textContent = jsonResort.gsx$greenslopes.$t;
+    extendedDesc.querySelector(".modal-blue span").textContent = jsonResort.gsx$blueslopes.$t;
+    extendedDesc.querySelector(".modal-red span").textContent = jsonResort.gsx$redslopes.$t;
+    extendedDesc.querySelector(".modal-black span").textContent = jsonResort.gsx$blackslopes.$t;
+    extendedDesc.querySelector(".modal-image-small").src = jsonResort.gsx$mapimage.$t;
+    extendedDesc.querySelector(".extendedPrice span").textContent = jsonResort.gsx$skipass.$t;
+
+    extendedDesc.querySelector(".close").addEventListener("click", (e) => {
+        extendedDesc.style.animation = ".3s open ease-in forwards;";
+        extendedDesc.style.display = "none";
+    });
 }
