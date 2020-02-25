@@ -163,11 +163,23 @@ main h2{
 
 footer{
     background-color: #5B98D7;
-    height: 8rem;
+/*    height: 10rem;*/
     color: white;
     padding: 10px;
 }
 
+footer >ul {
+    list-style: none;
+}
+
+li {
+    cursor: pointer;
+}
+.some-icon {
+    height: 2rem;
+    position:relative;
+    padding-top: .5rem;
+}
 .modal-background {
     position: fixed;
     display: none;
@@ -254,3 +266,5 @@ float: right;
     margin-top: -1rem;
 
 }
+
+
