@@ -139,8 +139,8 @@ nav ul li:last-child {
     margin-right: auto;
     margin-top: 1rem;
     width: 50%;
-    height: 3rem;
-    background-color: lightblue;
+    height: 7rem;
+    background-color: #e0e6ed;
     transition: .3s all;
     text-align: left;
     padding: 1rem;
@@ -183,7 +183,7 @@ section {
 
 .extendedDesc {
     grid-column: 1/-1;
-    background-color: #edf5ff;
+    background-color: #e0e6ed;
     display: none;
     justify-self: center;
     animation: .3s open ease-in reverse forwards;
@@ -208,15 +208,16 @@ section {
     border-right: 2rem solid transparent;
     position: absolute;
     top: -2rem;
-    border-bottom: 2rem solid #edf5ff;
+    border-bottom: 2rem solid #e0e6ed;
 }
 
 .close {
-    color: #fff;
+    color: #eb8900;
     float: right;
     font-size: 3rem;
     font-weight: bold;
     cursor: pointer;
+    margin-right: 5%;
 }
 
 @keyframes open {
@@ -326,19 +327,21 @@ footer > ul > li{
 }
 
 .slopes {
+    float: right;
     display: flex;
-    text-align: center;
+    flex-flow: column wrap;
     justify-content: space-between;
-    padding: 1rem;
-    width: 80%;
-    margin: 0 auto 0rem;
+    text-align: center;
+    align-content: center;
+    width: 25rem;
 }
 
 .slopes div .red, .blue, .green, .black {
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
-    margin: 0 auto .5rem auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .green {
@@ -366,7 +369,8 @@ footer > ul > li{
 
 .modal-image-small {
     max-width: 20vw;
-    float: right;
+    margin: 1rem;
+    margin-top: 0;
 }
 
 .modal-country {
@@ -384,6 +388,10 @@ footer > ul > li{
     text-align: center;
 }
 
+.resort-description {
+
+}
+
 .descButtons {
     display: flex;
     justify-content: center;
@@ -393,7 +401,7 @@ footer > ul > li{
     margin: 0 1rem;
     height: 3rem;
     width: 10rem;
-    background-color:#ffa200;
+    background-color:#eb8900;
 	display:inline-block;
 	cursor:pointer;
     border: none;

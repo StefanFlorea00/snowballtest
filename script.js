@@ -17,16 +17,17 @@ function getData() {
 }
 
 let init = false;
+
 function handleData(data) {
 
     const JSONdata = data.feed.entry;
 
     console.log("[INFO] Found resorts:", JSONdata);
-    if(!init){
-            console.log("[INFO] Init");
-            createSectionsLength();
-            JSONdata.forEach(addResortLengthArray);
-            resortArray.forEach(addResort);
+    if (!init) {
+        console.log("[INFO] Init");
+        createSectionsLength();
+        JSONdata.forEach(addResortLengthArray);
+        resortArray.forEach(addResort);
     }
     document.querySelector("#sort").addEventListener("change", (e) => {
         if (document.querySelector("#sort").value == "Country") {
@@ -150,8 +151,8 @@ function createSectionsCountry(singleRowData) {
 
 function createSectionsLength() {
     const mainBody = document.querySelector("main");
-    if (document.querySelector(`#lengthSection`) == null) {
 
+    if (document.querySelector(`#lengthSection`) == null) {
         const createdSection = document.createElement("section");
         createdSection.setAttribute("id", `lengthSection`);
         mainBody.appendChild(createdSection);
@@ -162,6 +163,15 @@ function createSectionsLength() {
 
 function deleteSectionsCountry(singleRowData) {
     section = document.querySelector(`#${singleRowData.gsx$country.$t}`);
+    extendedDescription = document.querySelector(`.extendedDesc`);
+
+    if(section){
+    if(section.contains(extendedDescription)){
+    console.log(extendedDescription.parentElement);
+    console.log(extendedDescription);
+    document.querySelector("main").appendChild(extendedDescription);
+    extendedDescription.style.display = "none";
+    }}
     console.log("[INFO] DELETED SECTION", document.querySelector(`#${singleRowData.gsx$country.$t}`));
 
     if (section != null) {
@@ -171,6 +181,15 @@ function deleteSectionsCountry(singleRowData) {
 
 function deleteSectionsPrice(singleRowData) {
     section = document.querySelector(`#price${singleRowData.gsx$skipass.$t}`);
+    extendedDescription = document.querySelector(`.extendedDesc`);
+
+    if(section){
+    if(section.contains(extendedDescription)){
+    console.log(extendedDescription.parentElement);
+    console.log(extendedDescription);
+    document.querySelector("main").appendChild(extendedDescription);
+    extendedDescription.style.display = "none";
+    }}
     console.log("[INFO] DELETED SECTION", document.querySelector(`#price${singleRowData.gsx$skipass.$t}`));
 
     if (section != null) {
@@ -180,6 +199,16 @@ function deleteSectionsPrice(singleRowData) {
 
 function deleteSectionsLength() {
     section = document.querySelector(`#lengthSection`);
+    extendedDescription = document.querySelector(`.extendedDesc`);
+
+    if(section){
+    if(section.contains(extendedDescription)){
+    console.log(extendedDescription.parentElement);
+    console.log(extendedDescription);
+    document.querySelector("main").appendChild(extendedDescription);
+    extendedDescription.style.display = "none";
+    }}
+
     console.log("[INFO] DELETED SECTION", document.querySelector(`#lengthSection`));
 
     if (section != null) {
@@ -187,7 +216,7 @@ function deleteSectionsLength() {
     }
 }
 
-function deleteSections(singleRowData){
+function deleteSections(singleRowData) {
     deleteSectionsCountry(singleRowData);
     deleteSectionsPrice(singleRowData);
     deleteSectionsLength();
@@ -230,9 +259,10 @@ function addResort(jsonResort) {
 }
 
 const resortArray = [];
-function addResortLengthArray(jsonResort){
+
+function addResortLengthArray(jsonResort) {
     resortArray.push(jsonResort);
-    resortArray.sort( (a,b) => {
+    resortArray.sort((a, b) => {
         return parseInt(a.gsx$slopelength.$t) - parseInt(b.gsx$slopelength.$t);
     });
     console.log(resortArray);
@@ -277,6 +307,7 @@ function showExtendedDetails(jsonResort) {
     extendedDesc.querySelector(".modal-black span").textContent = jsonResort.gsx$blackslopes.$t;
     extendedDesc.querySelector(".modal-image-small").src = jsonResort.gsx$mapimage.$t;
     extendedDesc.querySelector(".extendedPrice span").textContent = jsonResort.gsx$skipass.$t;
+    extendedDesc.querySelector(".resort-description").textContent = jsonResort.gsx$about.$t;
 
     extendedDesc.querySelector(".close").addEventListener("click", (e) => {
         extendedDesc.style.animation = ".3s open ease-in forwards;";
