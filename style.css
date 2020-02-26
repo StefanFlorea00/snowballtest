@@ -181,46 +181,6 @@ section {
     grid-auto-flow: row dense;
 }
 
-.extendedDesc {
-    grid-column: 1/-1;
-    background-color: #e0e6ed;
-    display: none;
-    justify-self: center;
-    animation: .3s open ease-in reverse forwards;
-    padding: 1rem;
-    padding-left: 2rem;
-    position: relative;
-    /*    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);*/
-}
-
-.extendedDesc .resortIcons img {
-    width: 8rem;
-    transition: 0.3s;
-}
-
-.extendedDesc .resortIcons img:hover {
-    transform: scale(1.1);
-}
-
-.arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 2rem solid transparent;
-    border-right: 2rem solid transparent;
-    position: absolute;
-    top: -2rem;
-    border-bottom: 2rem solid #e0e6ed;
-}
-
-.close {
-    color: #eb8900;
-    float: right;
-    font-size: 3rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-right: 5%;
-}
-
 @keyframes open {
     0% {
         width: 100%;
@@ -290,65 +250,74 @@ footer > ul > li {
     padding: 0 2vh;
 }
 
-.modal-background {
-    position: fixed;
+.extendedDesc {
+    grid-column: 1/-1;
+    background-color: #e0e6ed;
     display: none;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow-y: scroll;
+    justify-self: center;
+    animation: .3s open ease-in reverse forwards;
+    padding: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    /*    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);*/
 }
 
-.modal-content {
-    background-color: #fefefe;
-    border: 1px solid #7c1f17;
-    margin: 10em;
-    padding: 2em;
+.resortIcons img {
+    transition: 0.3s;
+}
+
+.resortIcons figure {
+    width: 7rem;
+    position: relative;
+}
+
+.resortIcons img:hover {
+    transform: scale(1.1);
+}
+
+.resortIcons {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
-.modal-image-big {
-    width: 50vw;
-    order: -1;
-    margin: auto;
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 2rem solid transparent;
+    border-right: 2rem solid transparent;
+    position: absolute;
+    top: -2rem;
+    border-bottom: 2rem solid #e0e6ed;
 }
 
-.modal-green,
-.modal-blue,
-.modal-red,
-.modal-black {
-    display: inline;
-    /*    margin: 0 10px;
-=======
-    display: block;
-    text-align: center;
-    width: 150px;
-    /*    margin: 0 10px;*/
+.close {
+    color: #eb8900;
+    float: right;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 5%;
 }
 
 .slopes {
+    margin-top: 2rem;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    text-align: center;
-    align-content: center;
-    width: 35rem;
+    justify-content: space-around;
+}
+
+.slopes div {
+    padding: 0 1rem;
 }
 
 .slopes div .red,
 .blue,
 .green,
 .black {
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.7rem;
 }
 
 .green {
@@ -367,48 +336,25 @@ footer > ul > li {
     background-color: black;
 }
 
-.description-map {
-    display: flex;
-    flex-direction: column;
-    float: right;
-    margin-right: 15rem;
+.resortMap {
+    max-height: 21rem;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.modal-image-small {
-    max-height: 20vw;
-    margin: 1rem;
-    margin-top: 0;
-}
-
-.modal-country {
-    margin-top: -1rem;
-
-}
-
-.resortIcons {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.resortIcons figure {
-    position: relative;
-}
-
 
 .resortIcons figure .tooltiptext {
     visibility: hidden;
-    width: 120px;
     background-color: black;
-    color: #fff;
+    color: white;
     text-align: center;
+    margin-left: -80px;
+    width: 180px;
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
     z-index: 1;
-    width: 120px;
     top: 100%;
     left: 50%;
-    margin-left: -60px;
 }
 
 .resortIcons figure:hover .tooltiptext {
@@ -417,15 +363,17 @@ footer > ul > li {
 
 .extendedPrice {
     font-size: 2rem;
+    text-align: center;
+    margin: 1rem;
 }
 
-.resort-description {
+.resortDescription {
     width: 40rem;
 }
 
 .descButtons {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .descButtons button {
@@ -450,4 +398,54 @@ footer > ul > li {
 .descButtons button:active {
     position: relative;
     top: 1px;
+}
+
+.descWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right";
+}
+
+.left {
+    display: flex;
+    flex-flow: column;
+    grid-area: left;
+}
+
+.right {
+    display: flex;
+    grid-area: right;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (max-width:1350px) {
+    .descWrapper {
+        background-color: lightblue;
+        display: grid;
+        grid-template-columns: 1fr 0fr;
+        grid-template-areas: "left"
+            "right";
+        grid-gap: 2rem;
+        justify-content: center;
+    }
+
+    .arrow-up{
+        display: none;
+    }
+
+    .resortDescription{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .left h1{
+        text-align: center;
+    }
+
+    .resortIcons figure .tooltiptext {
+    visibility: visible;
+}
 }

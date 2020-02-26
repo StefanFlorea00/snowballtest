@@ -305,9 +305,11 @@ function showExtendedDetails(jsonResort) {
     extendedDesc.querySelector(".modal-blue span").textContent = jsonResort.gsx$blueslopes.$t;
     extendedDesc.querySelector(".modal-red span").textContent = jsonResort.gsx$redslopes.$t;
     extendedDesc.querySelector(".modal-black span").textContent = jsonResort.gsx$blackslopes.$t;
-    extendedDesc.querySelector(".modal-image-small").src = jsonResort.gsx$mapimage.$t;
+    extendedDesc.querySelector(".resortMap").src = jsonResort.gsx$mapimage.$t;
     extendedDesc.querySelector(".extendedPrice span").textContent = jsonResort.gsx$skipass.$t;
-    extendedDesc.querySelector(".resort-description").textContent = jsonResort.gsx$about.$t;
+    extendedDesc.querySelector(".resortDescription").textContent = jsonResort.gsx$about.$t;
+    extendedDesc.querySelector(".resortIcons figure .tooltiptext .tooltipheight").textContent = jsonResort.gsx$maxheight.$t;
+    extendedDesc.querySelector(".resortIcons figure .tooltiptext .tooltiplength").textContent = jsonResort.gsx$slopelength.$t;
 
     extendedDesc.querySelector(".close").addEventListener("click", (e) => {
         extendedDesc.style.animation = ".3s open ease-in forwards;";

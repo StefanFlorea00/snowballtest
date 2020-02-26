@@ -47,14 +47,14 @@
                 <option value="Country">Country</option>
                 <option value="Price">Price</option>
             </select>
-               <div class="filterItems">
+            <div class="filterItems">
                 <input type="checkbox" name="filter" value="Filter1">
                 <label for="vehicle1"> Filter1</label><br>
                 <input type="checkbox" name="vehicle2" value="Filter2">
                 <label for="vehicle2"> Filter2</label><br>
                 <input type="checkbox" name="vehicle3" value="Filter3" checked>
                 <label for="vehicle3"> Filter3</label><br><br>
-                </div>
+            </div>
         </div>
     </section>
 
@@ -74,19 +74,75 @@
                 </div>
             </article>
         </template>
-
-        <!--
-
-    <!--main 80-120-->
+    </main>
 
 
-        <div class="modal-background">
-            <div class="modal-content">
-                <h1 class="resort-name">Name</h1>
-                <h3 class="modal-country">Country</h3>
-                <img src="" alt="" class="modal-image-big">
+    <!--
+    <div class="extendedDesc">
+        <div class="arrow-up"></div>
+        <span class="close">&times;</span>
+        <h1>Resort</h1>
 
-                <section class="slopes">
+        <div class="description-map">
+            <div class="slopes">
+                <img src="" alt="" class="modal-image-small">
+                <div>
+                <div class="green"></div>
+                <p class="modal-green"><span></span> green slopes</p>
+                </div>
+
+                <div>
+                <div class="blue"></div>
+                <p class="modal-blue"><span></span> blue slopes</p>
+                </div>
+
+                <div>
+                <div class="red"></div>
+                <p class="modal-red"><span></span> red slopes</p>
+                </div>
+
+                <div>
+                <div class="black"></div>
+                <p class="modal-black"><span></span> black slopes</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="resort-description">Long description</p>
+        <div class="resortIcons">
+            <figure><img class="child-friendly" src="gfx/icons/child_friendly_icon-03.png" alt="icon"><span class="tooltiptext">Child friendly</span></figure>
+            <figure><img class="ski-rental" src="gfx/icons/slope_height_new.png" alt="icon"><span class="tooltiptext">Ski rental</span></figure>
+            <figure><img class="afterski" src="gfx/icons/slope_lenght_new.png" alt="icon"><span class="tooltiptext">Slope length</span></figure>
+        </div>
+        <p class="extendedPrice">Skipass price <span></span>dkk/day</p>
+        <div class="descButtons">
+            <button>See more</button>
+            <button>Resort Webpage</button>
+        </div>
+    </div>
+-->
+
+    <div class="extendedDesc">
+        <div class="arrow-up"></div>
+        <span class="close">&times;</span>
+        <div class="descWrapper">
+           <div class="left">
+            <h1>Resort</h1>
+            <p class="resortDescription">Long description</p>
+            <div class="resortIcons">
+                <figure><img class="child-friendly" src="gfx/icons/child_friendly_icon-03.png" alt="icon"><span class="tooltiptext">Child friendly</span></figure>
+                <figure><img class="ski-rental" src="gfx/icons/slope_height_new.png" alt="icon"><span class="tooltiptext">Slope height: <span class="tooltipheight"></span>km</span></figure>
+                <figure><img class="afterski" src="gfx/icons/slope_lenght_new.png" alt="icon"><span class="tooltiptext">Slope length: <span class="tooltiplength"></span>km</span></figure>
+            </div>
+            <p class="extendedPrice">Skipass price <span></span>dkk/day</p>
+                <div class="descButtons">
+                    <button>See more</button>
+                    <button>Resort Webpage</button>
+                </div>
+        </div>
+        <div class="right">
+                <img src="" alt="" class="resortMap">
+                <div class="slopes">
                     <div>
                         <div class="green"></div>
                         <p class="modal-green"><span></span> green slopes</p>
@@ -106,73 +162,17 @@
                         <div class="black"></div>
                         <p class="modal-black"><span></span> black slopes</p>
                     </div>
-                </section>
-
-                <div class="description-map">
-                    <img src="" alt="" class="modal-image-small">
-
-                    <p class="resort-description">Long description jhdgfksjfhgkdjfghsd ds fjdgf jdgfjkdghf kdjgfjdhg fjkdg fkjdg fjdfkdjgf jdsfg jksdgLong description jhdgfksjfhgkdjfghsd ds fjdgf jdgfjkdghf kdjgfjdhg fjkdg fkjdg fjdfkdjgf jdsfg jksdgLong description jhdgfksjfhgkdjfghsd ds fjdgf jdgfjkdghf kdjgfjdhg fjkdg fkjdg fjdfkdjgf jdsfg jksdgLong description jhdgfksjfhgkdjfghsd ds fjdgf jdgfjkdghf kdjgfjdhg fjkdg fkjdg fjdfkdjgf jdsfg jksdg</p>
                 </div>
-                <figure><img class=" child-friendly" src="gfx/icons/slope_lenght_icon.png" alt="icon"></figure>
-                <figure><img class="ski-rental" src="gfx/icons/height_icon.jpg" alt="icon"></figure>
-                <figure><img class="afterski" src="gfx/icons/slope_lenght_icon.png" alt="icon"></figure>
-                <p class="modal-price">Skipass price <span></span>dkk/day</p>
-
-            </div>
         </div>
-    </main>
-
-
-    <div class="extendedDesc">
-        <div class="arrow-up"></div>
-        <span class="close">&times;</span>
-        <h1>Resort</h1>
-
-        <div class="description-map">
-            <div class="slopes">
-            <img src="" alt="" class="modal-image-small">
-            <div>
-                <div class="green"></div>
-                <p class="modal-green"><span></span> green slopes</p>
-            </div>
-
-            <div>
-                <div class="blue"></div>
-                <p class="modal-blue"><span></span> blue slopes</p>
-            </div>
-
-            <div>
-                <div class="red"></div>
-                <p class="modal-red"><span></span> red slopes</p>
-            </div>
-
-            <div>
-                <div class="black"></div>
-                <p class="modal-black"><span></span> black slopes</p>
-            </div>
-            </div>
         </div>
 
-        <p class="resort-description">Long description</p>
-        <div class="resortIcons">
-            <figure><img class="child-friendly" src="gfx/icons/child_friendly_icon-03.png" alt="icon"><span class="tooltiptext">Child friendly</span></figure>
-            <figure><img class="ski-rental" src="gfx/icons/slope_height_new.png" alt="icon"><span class="tooltiptext">Ski rental</span></figure>
-            <figure><img class="afterski" src="gfx/icons/slope_lenght_new.png" alt="icon"><span class="tooltiptext">Slope length</span></figure>
-        </div>
-        <p class="extendedPrice">Skipass price <span></span>dkk/day</p>
-        <div class="descButtons">
-            <button>See more</button>
-            <button>Resort Webpage</button>
-        </div>
     </div>
-
-
 
 
     <!--footer 120-160-->
 
     <footer>
-                <h3>Contact</h3>
+        <h3>Contact</h3>
         <ul>
             <li>Phone number: +45 12 34 56 78 <a href=""></a></li>
             <li>Email: snowpedia@snows.com</li>
