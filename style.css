@@ -1,10 +1,10 @@
-*{
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     font-family: 'Open Sans'
 }
@@ -21,37 +21,34 @@ img {
     padding: 0rem;
     margin: 1rem auto 4rem auto;
     background-color: #5B98D7;
-    box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.3);
+    box-shadow: inset 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
     opacity: 1;
     transition: 0.3s all;
 
 }
 
-.resortCard:hover{
+.resortCard:hover {
     transform: scale(1.05);
     z-index: 1;
     cursor: pointer;
     background-color: #7B98C0;
 }
 
-.resortCard h1{
-    position:absolute;
+.resortCard h1 {
+    position: absolute;
     margin-left: 2rem;
     color: white;
     text-shadow: 1px 1px #666666;
 }
 
-.resortCard .resortImgWrapper{
+.resortCard .resortImgWrapper {
     height: 15rem;
     overflow: hidden;
 }
 
-.resortCard img{
+.resortCard img {}
 
-
-}
-
-.resortCard .resortDetails{
+.resortCard .resortDetails {
     font-size: 0.9rem;
     display: flex;
     justify-content: space-around;
@@ -83,20 +80,20 @@ nav ul li {
     transition: 0.3s;
 }
 
-nav ul li:hover{
+nav ul li:hover {
     background-color: white;
     color: #5B98D7;
 }
 
-nav ul li:last-child{
+nav ul li:last-child {
     margin-left: auto;
 }
 
-.searchIcon{
+.searchIcon {
     width: 2rem;
 }
 
-#search{
+#search {
     width: 25rem;
     height: 1.5rem;
     border: 1.5px solid black;
@@ -107,19 +104,19 @@ nav ul li:last-child{
     margin-left: auto;
 }
 
-.logoImg{
+.logoImg {
     transform: translate(0px, -20%);
 }
 
-.logoImgWrapper{
+.logoImgWrapper {
     text-align: center;
     position: relative;
     height: 20rem;
     overflow: hidden;
-    box-shadow: inset 0px 0px 50px 2px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 0px 50px 2px rgba(0, 0, 0, 0.5);
 }
 
-.logoImgWrapper > .logoText{
+.logoImgWrapper > .logoText {
     position: absolute;
     margin: 0;
     top: 50%;
@@ -131,18 +128,18 @@ nav ul li:last-child{
     text-shadow: 2px 2px #E0E6ED;
 }
 
-.searchSection{
+.searchSection {
     display: block;
     text-align: center;
 }
 
-.searchSection h2{
+.searchSection h2 {
     font-size: 1.5rem;
     margin-bottom: 0.3rem;
     font-weight: 600;
 }
 
-section{
+section {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
@@ -150,7 +147,7 @@ section{
     grid-auto-rows: 1fr;
 }
 
-main section .sectionTitle{
+main section .sectionTitle {
     text-align: center;
     grid-column: 1/-1;
     font-size: 2rem;
@@ -158,14 +155,50 @@ main section .sectionTitle{
 
 
 
-main h2{
+main h2 {}
+
+footer {
+    background-color: #5B98D7;
+    height: 15rem;
+    color: white;
+    padding-top: 10px;
+}
+footer h3 {
+    padding-left: 9.5rem;
+}
+footer > ul {
+    list-style: none;
+/*
+    display: flex;
+    flex-flow: row wrap;
+*/
 }
 
-footer{
-    background-color: #5B98D7;
-    height: 8rem;
-    color: white;
-    padding: 10px;
+li {
+    cursor: pointer;
+}
+
+footer > ul > li{
+    padding: 0 7rem;
+}
+
+.facebook, .instagram {
+    width: 4rem;
+    padding: .5rem;
+}
+
+.some-icon {
+    display: inline-flex;
+/*    margin: -7vh 4vh 4vh 7vw;*/
+/*    width: 7rem;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    display:flow-root;*/
+}
+
+
+.some-icon > img {
+    padding: 0 2vh;
 }
 
 .modal-background {
@@ -190,26 +223,30 @@ footer{
 }
 
 .modal-image-big {
-  width: 50vw;
+    width: 50vw;
     order: -1;
     margin: auto;
 }
 
-.modal-green, .modal-blue, .modal-red, .modal-black {
+.modal-green,
+.modal-blue,
+.modal-red,
+.modal-black {
     display: inline;
-/*    margin: 0 10px;*/
+    /*    margin: 0 10px;
 }
 
 .slopes {
     display: flex;
-    text-align:center;
+    text-align: center;
     justify-content: space-between;
     padding: 3rem;
     width: 80%;
     margin: 0 auto;
 }
+
 .green {
-    background-color:  forestgreen;
+    background-color: forestgreen;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -225,7 +262,7 @@ footer{
 }
 
 .red {
-    background-color:  red;
+    background-color: red;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -233,21 +270,23 @@ footer{
 }
 
 .black {
-    background-color:  black;
+    background-color: black;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     margin: 0 auto .5rem auto;
 }
+
 .description-map {
-/*    display: flex;*/
+    /*    display: flex;*/
     flex-direction: column;
     display: inline;
     margin-top: 5rem;
 }
+
 .modal-image-small {
     width: 25vw;
-float: right;
+    float: right;
 }
 
 .modal-country {
