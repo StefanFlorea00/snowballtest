@@ -4,86 +4,184 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: 'Open Sans';
-    overflow: hidden;
-}
+
+ html {
+
+        background-image: url(../gfx/img/snowball_homepage_screen_under_700px.jpg);
+        margin: 0;
+        font-family: 'Open Sans';
+        overflow: hidden;
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
 
 
 
 img {
-    max-width: 100%;
-}
+        max-width: 100%;
+    }
 
 
-.HPWrapper {
-    position: relative;
-}
+
+    .HPWrapper {
+        position: relative;
+    }
 
 
-.HPlogoWrapper {
-    position: absolute;
-    top: 2.5rem;
-    right: 5rem;
-    display: flex;
-    align-items: center;
-}
+    .HPlogoWrapper {
+        position: absolute;
+        top: 2.5vh;
+        right: 4vw;
+        display: flex;
+        align-items: center;
+    }
 
-.HPlogoText {
-    color: white;
-    font-size: 4rem;
-    font-family: 'Racing Sans One';
-    text-shadow: 2px 2px #E0E6ED;
-}
+    .HPlogoText {
+        color: white;
+        font-size: 3rem;
+        font-family: 'Racing Sans One';
+        text-shadow: 1px 1px #E0E6ED;
+    }
 
-.skiLogo {
-    width: 5.5rem;
-}
-
-
-.HPh1 {
-    position: absolute;
-    font-size: 3.5rem;
-    bottom: 17rem;
-    left: 3.5rem;
-    color: white;
-}
-
-.HPh1 > span {
-    font-size: 2rem;
-}
-
-.HPh2 {
-    position: absolute;
-    font-size: 1.5rem;
-    bottom: 13rem;
-    left: 5rem;
-    color: white;
-    font-weight: 300;
-}
+    .skiLogo {
+        width: 5.5rem;
+    }
 
 
-#HPbutton {
-    /*    z-index: -1;*/
-    position: absolute;
-    bottom: 10rem;
-    left: 45rem;
-    background-color: #eb8900;
-    height: 2.5rem;
-    width: 14rem;
-    color: white;
-    font-family: 'Open Sans';
-    font-size: 1.3rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    border: 0;
-    border-radius: 0.7rem;
-}
+    .HPh1 {
+        position: absolute;
+        font-size: 1.5rem;
+        top: 55vh;
+        left: 5vw;
+        color: white;
+    }
 
-#HPbutton:hover {
-    transform: scale(1.2);
+    .HPh1 > span {
+        font-size: 0.8rem;
+    }
+
+    .HPh2 {
+        position: absolute;
+        font-size: 1rem;
+        top: 70vh;
+        left: 5vw;
+        color: white;
+        font-weight: 300;
+
+    }
+
+
+    #HPbutton {
+        position: absolute;
+        top: 85vh;
+        left: 20vw;
+        background-color: #eb8900;
+        height: 2.5rem;
+        width: 14rem;
+        color: white;
+        font-family: 'Open Sans';
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        border: 0;
+        border-radius: 0.7rem;
+    }
+
+    #HPbutton:hover {
+        transform: scale(1.2);
+    }
+
+
+
+ @media only screen and (min-width: 750px) {
+        /* styles for screens larger than 960px; */
+
+     html {
+
+        background-image: url(../gfx/img/background_homepage.jpg);
+        margin: 0;
+        font-family: 'Open Sans';
+        overflow: hidden;
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+     .HPWrapper {
+        position: relative;
+    }
+
+
+    .HPlogoWrapper {
+        position: absolute;
+        top: 2.5vh;
+        right: 5vw;
+        display: flex;
+        align-items: center;
+    }
+
+    .HPlogoText {
+        color: white;
+        font-size: 4rem;
+        font-family: 'Racing Sans One';
+        text-shadow: 2px 2px #E0E6ED;
+    }
+
+    .skiLogo {
+        width: 5.5rem;
+    }
+
+
+    .HPh1 {
+        position: absolute;
+        font-size: 3.5rem;
+        top: 50vh;
+        left: 5vw;
+        color: white;
+    }
+
+    .HPh1 > span {
+        font-size: 2rem;
+    }
+
+    .HPh2 {
+        position: absolute;
+        font-size: 1.5rem;
+        top: 70vh;
+        left: 5vw;
+        color: re;
+        font-weight: 300;
+    }
+
+
+    #HPbutton {
+        position: absolute;
+        top: 85vh;
+        left: 25vw;
+        ;
+        background-color: #eb8900;
+        height: 2.5rem;
+        width: 14rem;
+        color: white;
+        font-family: 'Open Sans';
+        font-size: 1.3rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        border: 0;
+        border-radius: 0.7rem;
+    }
+
+    #HPbutton:hover {
+        transform: scale(1.2);
+    }
+
 }
 
 
