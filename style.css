@@ -134,7 +134,7 @@ nav ul li:last-child {
     text-align: center;
 }
 
-.searchSection .filtering{
+.searchSection .filtering {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
@@ -150,7 +150,7 @@ nav ul li:last-child {
     overflow: hidden;
 }
 
-.searchSection .filtering:hover{
+.searchSection .filtering:hover {
     height: 7rem;
 }
 
@@ -160,7 +160,7 @@ nav ul li:last-child {
     font-weight: 600;
 }
 
-.searchSection .sort{
+.searchSection .sort {
     width: 8rem;
     appearance: none;
     border: 1px solid #FFF;
@@ -168,7 +168,7 @@ nav ul li:last-child {
     margin-left: 1rem;
 }
 
-.searchSection .filterItems{
+.searchSection .filterItems {
     margin-left: 1rem;
     margin-top: 1rem;
 }
@@ -188,8 +188,9 @@ section {
     justify-self: center;
     animation: .3s open ease-in reverse forwards;
     padding: 1rem;
+    padding-left: 2rem;
     position: relative;
-/*    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);*/
+    /*    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);*/
 }
 
 .extendedDesc .resortIcons img {
@@ -248,12 +249,14 @@ footer {
     color: white;
     padding-top: 10px;
 }
+
 footer h3 {
     padding-left: 9.5rem;
 }
+
 footer > ul {
     list-style: none;
-/*
+    /*
     display: flex;
     flex-flow: row wrap;
 */
@@ -263,22 +266,23 @@ li {
     cursor: pointer;
 }
 
-footer > ul > li{
+footer > ul > li {
     padding: 0 7rem;
 }
 
-.facebook, .instagram {
+.facebook,
+.instagram {
     width: 4rem;
     padding: .5rem;
 }
 
 .some-icon {
     display: inline-flex;
-/*    margin: -7vh 4vh 4vh 7vw;*/
-/*    width: 7rem;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    display:flow-root;*/
+    /*    margin: -7vh 4vh 4vh 7vw;*/
+    /*    width: 7rem;*/
+    /*    justify-content: center;*/
+    /*    align-items: center;*/
+    /*    display:flow-root;*/
 }
 
 
@@ -327,21 +331,24 @@ footer > ul > li{
 }
 
 .slopes {
-    float: right;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     text-align: center;
     align-content: center;
-    width: 25rem;
+    width: 35rem;
 }
 
-.slopes div .red, .blue, .green, .black {
+.slopes div .red,
+.blue,
+.green,
+.black {
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0.7rem;
 }
 
 .green {
@@ -361,14 +368,14 @@ footer > ul > li{
 }
 
 .description-map {
-    /*    display: flex;*/
+    display: flex;
     flex-direction: column;
-    display: inline;
-    margin-top: 5rem;
+    float: right;
+    margin-right: 15rem;
 }
 
 .modal-image-small {
-    max-width: 20vw;
+    max-height: 20vw;
     margin: 1rem;
     margin-top: 0;
 }
@@ -380,41 +387,67 @@ footer > ul > li{
 
 .resortIcons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.resortIcons figure {
+    position: relative;
+}
+
+
+.resortIcons figure .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.resortIcons figure:hover .tooltiptext {
+    visibility: visible;
 }
 
 .extendedPrice {
     font-size: 2rem;
-    text-align: center;
 }
 
 .resort-description {
-
+    width: 40rem;
 }
 
 .descButtons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
-.descButtons button{
+.descButtons button {
     margin: 0 1rem;
     height: 3rem;
     width: 10rem;
-    background-color:#eb8900;
-	display:inline-block;
-	cursor:pointer;
+    background-color: #eb8900;
+    display: inline-block;
+    cursor: pointer;
     border: none;
-	color:#ffffff;
-	font-family:'Open sans';
-	font-size:1rem;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #665c28;
+    color: #ffffff;
+    font-family: 'Open sans';
+    font-size: 1rem;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #665c28;
 }
+
 .descButtons button:hover {
-	background-color:#bd9b2a;
+    background-color: #bd9b2a;
 }
+
 .descButtons button:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
