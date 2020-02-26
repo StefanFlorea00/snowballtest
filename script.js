@@ -23,12 +23,15 @@ function handleData(data) {
     const JSONdata = data.feed.entry;
 
     console.log("[INFO] Found resorts:", JSONdata);
+
+    //first time sort by length
     if (!init) {
         console.log("[INFO] Init");
         createSectionsLength();
         JSONdata.forEach(addResortLengthArray);
         resortArray.forEach(addResort);
     }
+    //sort cases
     document.querySelector("#sort").addEventListener("change", (e) => {
         if (document.querySelector("#sort").value == "Country") {
             JSONdata.forEach(deleteSectionsLength);
@@ -54,60 +57,18 @@ function showData(singleRowData) {
     addResort(singleRowData);
 }
 
-//old function for creating price sections, was not working well
-function createSectionsPriceOLD(singleRowData) {
-
-    const mainBody = document.querySelector("main");
-
-    if (document.querySelector(`#price${singleRowData.gsx$skipass.$t}`) == null) {
-
-        const createdSection = document.createElement("section");
-        const createdh2 = document.createElement("h2");
-
-        createdSection.setAttribute("id", `${singleRowData.gsx$skipass.$t}`);
-        createdh2.setAttribute("class", `sectionTitle`);
-        createdh2.textContent = `${singleRowData.gsx$skipass.$t}`;
-
-        sectionsPriceArray.push(createdSection);
-
-        sectionsPriceArray.sort(function (a, b) {
-            console.log(parseInt(a.id) - parseInt(b.id));
-            return parseInt(a.id) - parseInt(b.id);
-        });
-
-        let uniqueSectionsArray = [sectionsPriceArray[0]];
-        for (let i = 1; i < uniqueSectionsArray.length; i++) {
-            if (sectionsPriceArray[i] != sectionsPriceArray[i - 1]) uniqueSectionsArray.push(arr[i]);
-        }
-
-        uniqueSectionsArray.forEach(el => {
-            mainBody.appendChild(el);
-            console.warn("[INFO] ADDED SECTION ", singleRowData.gsx$skipass.$t);
-        })
-
-        console.log(uniqueSectionsArray);
-
-        //        for(let i=0;i<=sectionsArray.length;i++){
-        //            mainBody.appendChild(sectionsArray[i]);
-        ////            sectionsArray[i].appendChild(createdh2);
-        //            }
-
-
-    }
-}
-
 let sectionsPriceArray = [];
 let uniqueSectionsPriceArray = [];
 
-//needed for creating price sections, stores data in uniqueSectionsPriceArray
+//needed for creating price sections, stores resort prices in uniqueSectionsPriceArray with no duplicates
 function sortSectionsPriceArray(singleRowData) {
     sectionsPriceArray.push(parseInt(singleRowData.gsx$skipass.$t));
     sectionsPriceArray.sort((a, b) => {
         return a - b;
     });
 
+    //remove duplicates
     uniqueSectionsPriceArray = [...new Set(sectionsPriceArray)];
-    console.log(uniqueSectionsPriceArray);
 }
 
 function createSectionsPrice(singleRowData) {
@@ -165,14 +126,16 @@ function deleteSectionsCountry(singleRowData) {
     section = document.querySelector(`#${singleRowData.gsx$country.$t}`);
     extendedDescription = document.querySelector(`.extendedDesc`);
 
-    if(section){
-    if(section.contains(extendedDescription)){
-    console.log(extendedDescription.parentElement);
-    console.log(extendedDescription);
-    document.querySelector("main").appendChild(extendedDescription);
-    extendedDescription.style.display = "none";
-    }}
-    console.log("[INFO] DELETED SECTION", document.querySelector(`#${singleRowData.gsx$country.$t}`));
+    //if section has dropdown menu in it, move it to main to avoid deleting it
+    if (section) {
+        if (section.contains(extendedDescription)) {
+            console.log(extendedDescription.parentElement);
+            console.log(extendedDescription);
+            document.querySelector("main").appendChild(extendedDescription);
+            extendedDescription.style.display = "none";
+        }
+        console.log("[INFO] DELETED SECTION", document.querySelector(`#${singleRowData.gsx$country.$t}`));
+    }
 
     if (section != null) {
         section.parentNode.removeChild(section);
@@ -183,14 +146,16 @@ function deleteSectionsPrice(singleRowData) {
     section = document.querySelector(`#price${singleRowData.gsx$skipass.$t}`);
     extendedDescription = document.querySelector(`.extendedDesc`);
 
-    if(section){
-    if(section.contains(extendedDescription)){
-    console.log(extendedDescription.parentElement);
-    console.log(extendedDescription);
-    document.querySelector("main").appendChild(extendedDescription);
-    extendedDescription.style.display = "none";
-    }}
-    console.log("[INFO] DELETED SECTION", document.querySelector(`#price${singleRowData.gsx$skipass.$t}`));
+    //if section has dropdown menu in it, move it to main to avoid deleting it
+    if (section) {
+        if (section.contains(extendedDescription)) {
+            console.log(extendedDescription.parentElement);
+            console.log(extendedDescription);
+            document.querySelector("main").appendChild(extendedDescription);
+            extendedDescription.style.display = "none";
+        }
+        console.log("[INFO] DELETED SECTION", document.querySelector(`#price${singleRowData.gsx$skipass.$t}`));
+    }
 
     if (section != null) {
         section.parentNode.removeChild(section);
@@ -201,15 +166,16 @@ function deleteSectionsLength() {
     section = document.querySelector(`#lengthSection`);
     extendedDescription = document.querySelector(`.extendedDesc`);
 
-    if(section){
-    if(section.contains(extendedDescription)){
-    console.log(extendedDescription.parentElement);
-    console.log(extendedDescription);
-    document.querySelector("main").appendChild(extendedDescription);
-    extendedDescription.style.display = "none";
-    }}
-
-    console.log("[INFO] DELETED SECTION", document.querySelector(`#lengthSection`));
+    //if section has dropdown menu in it, move it to main to avoid deleting it
+    if (section) {
+        if (section.contains(extendedDescription)) {
+            console.log(extendedDescription.parentElement);
+            console.log(extendedDescription);
+            document.querySelector("main").appendChild(extendedDescription);
+            extendedDescription.style.display = "none";
+        }
+        console.log("[INFO] DELETED SECTION", document.querySelector(`#lengthSection`));
+    }
 
     if (section != null) {
         section.parentNode.removeChild(section);
@@ -241,7 +207,6 @@ function addResort(jsonResort) {
     addExtendedDesc(clone, jsonResort);
 
     //append template check for selected sort
-    //TODO: doesn't 100% work find out why
     try {
         if (document.querySelector("#sort").value == "Country") {
             let sectionToAdd = jsonResort.gsx$country.$t;
@@ -258,6 +223,8 @@ function addResort(jsonResort) {
     }
 }
 
+
+//add resorts in array sorted by length
 const resortArray = [];
 
 function addResortLengthArray(jsonResort) {
@@ -265,7 +232,6 @@ function addResortLengthArray(jsonResort) {
     resortArray.sort((a, b) => {
         return parseInt(a.gsx$slopelength.$t) - parseInt(b.gsx$slopelength.$t);
     });
-    console.log(resortArray);
 }
 
 //function for creating the extended description
@@ -278,8 +244,9 @@ function addExtendedDesc(clone, jsonResort) {
         document.querySelector('.extendedDesc').style.display = "block";
         document.querySelector('.arrow-up').style.left = e.pageX + "px";
 
-        var isInViewport = function (elem) {
-            var bounding = elem.getBoundingClientRect();
+        //if element is in viewport, returns false/true
+        const isInViewport = (elem) => {
+            const bounding = elem.getBoundingClientRect();
             return (
                 bounding.top >= 0 &&
                 bounding.left >= 0 &&
@@ -288,11 +255,13 @@ function addExtendedDesc(clone, jsonResort) {
             );
         };
 
-        showExtendedDetails(jsonResort);
-
+        //scroll to description if it's not in viewport
         if (!isInViewport(document.querySelector('.extendedDesc'))) {
             scrollTo(pageXOffset, pageYOffset + 300);
         }
+
+        showExtendedDetails(jsonResort);
+
     });
 }
 
