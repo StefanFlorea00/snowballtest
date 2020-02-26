@@ -16,31 +16,36 @@ function getData() {
         .then(handleData);
 }
 
+let init = false;
 function handleData(data) {
 
     const JSONdata = data.feed.entry;
 
     console.log("[INFO] Found resorts:", JSONdata);
-
+    if(!init){
+            console.log("[INFO] Init");
+            createSectionsLength();
+            JSONdata.forEach(addResortLengthArray);
+            resortArray.forEach(addResort);
+    }
     document.querySelector("#sort").addEventListener("change", (e) => {
-
-        if(document.querySelector("#sort").value == "Country"){
-                JSONdata.forEach(deleteSectionsPrice);
-                JSONdata.forEach(createSectionsCountry);
-                JSONdata.forEach(showData);
-        }
-        else if (document.querySelector("#sort").value == "Name") {
-        }
-        else if (document.querySelector("#sort").value == "Price"){
-                JSONdata.forEach(deleteSections);
-                JSONdata.forEach(sortSectionsPriceArray);
-                JSONdata.forEach(createSectionsPrice);
-                JSONdata.forEach(showData);
-        }
-        else {
-        }
-
-
+        if (document.querySelector("#sort").value == "Country") {
+            JSONdata.forEach(deleteSectionsLength);
+            JSONdata.forEach(deleteSectionsPrice);
+            JSONdata.forEach(createSectionsCountry);
+            JSONdata.forEach(showData);
+        } else if (document.querySelector("#sort").value == "Length") {
+            JSONdata.forEach(deleteSectionsPrice);
+            JSONdata.forEach(deleteSectionsCountry);
+            createSectionsLength();
+            resortArray.forEach(addResort);
+        } else if (document.querySelector("#sort").value == "Price") {
+            JSONdata.forEach(deleteSectionsLength);
+            JSONdata.forEach(deleteSectionsCountry);
+            JSONdata.forEach(sortSectionsPriceArray);
+            JSONdata.forEach(createSectionsPrice);
+            JSONdata.forEach(showData);
+        } else {}
     });
 }
 
@@ -64,14 +69,14 @@ function createSectionsPriceOLD(singleRowData) {
 
         sectionsPriceArray.push(createdSection);
 
-        sectionsPriceArray.sort( function(a,b) {
-            console.log(parseInt(a.id)-parseInt(b.id));
-                return parseInt(a.id)-parseInt(b.id);
+        sectionsPriceArray.sort(function (a, b) {
+            console.log(parseInt(a.id) - parseInt(b.id));
+            return parseInt(a.id) - parseInt(b.id);
         });
 
         let uniqueSectionsArray = [sectionsPriceArray[0]];
-            for (let i=1; i<uniqueSectionsArray.length; i++) {
-            if (sectionsPriceArray[i]!=sectionsPriceArray[i-1]) uniqueSectionsArray.push(arr[i]);
+        for (let i = 1; i < uniqueSectionsArray.length; i++) {
+            if (sectionsPriceArray[i] != sectionsPriceArray[i - 1]) uniqueSectionsArray.push(arr[i]);
         }
 
         uniqueSectionsArray.forEach(el => {
@@ -81,10 +86,10 @@ function createSectionsPriceOLD(singleRowData) {
 
         console.log(uniqueSectionsArray);
 
-//        for(let i=0;i<=sectionsArray.length;i++){
-//            mainBody.appendChild(sectionsArray[i]);
-////            sectionsArray[i].appendChild(createdh2);
-//            }
+        //        for(let i=0;i<=sectionsArray.length;i++){
+        //            mainBody.appendChild(sectionsArray[i]);
+        ////            sectionsArray[i].appendChild(createdh2);
+        //            }
 
 
     }
@@ -94,10 +99,10 @@ let sectionsPriceArray = [];
 let uniqueSectionsPriceArray = [];
 
 //needed for creating price sections, stores data in uniqueSectionsPriceArray
-function sortSectionsPriceArray(singleRowData){
+function sortSectionsPriceArray(singleRowData) {
     sectionsPriceArray.push(parseInt(singleRowData.gsx$skipass.$t));
-    sectionsPriceArray.sort( (a,b) => {
-      return a-b;
+    sectionsPriceArray.sort((a, b) => {
+        return a - b;
     });
 
     uniqueSectionsPriceArray = [...new Set(sectionsPriceArray)];
@@ -107,8 +112,8 @@ function sortSectionsPriceArray(singleRowData){
 function createSectionsPrice(singleRowData) {
     const mainBody = document.querySelector("main");
 
-    if(document.querySelector(`#price${singleRowData.gsx$skipass.$t}`) == null) {
-        for(let i=0;i<uniqueSectionsPriceArray.length;i++){
+    if (document.querySelector(`#price${singleRowData.gsx$skipass.$t}`) == null) {
+        for (let i = 0; i < uniqueSectionsPriceArray.length; i++) {
             const createdSection = document.createElement("section");
             createdSection.setAttribute("id", `price${uniqueSectionsPriceArray[i]}`);
 
@@ -116,11 +121,11 @@ function createSectionsPrice(singleRowData) {
 
             const createdh2 = document.createElement("h2");
             createdh2.setAttribute("class", `sectionTitle`);
-            createdh2.textContent = `${uniqueSectionsPriceArray[i]}`;
+            createdh2.textContent = `${uniqueSectionsPriceArray[i]} dkk`;
             createdSection.appendChild(createdh2);
 
             console.warn("[INFO] ADDED SECTION ", uniqueSectionsPriceArray[i]);
-            }
+        }
     }
 }
 
@@ -143,7 +148,19 @@ function createSectionsCountry(singleRowData) {
     }
 }
 
-function deleteSections(singleRowData) {
+function createSectionsLength() {
+    const mainBody = document.querySelector("main");
+    if (document.querySelector(`#lengthSection`) == null) {
+
+        const createdSection = document.createElement("section");
+        createdSection.setAttribute("id", `lengthSection`);
+        mainBody.appendChild(createdSection);
+
+        console.warn("[INFO] ADDED SECTION ", createdSection.getAttribute("id"));
+    }
+}
+
+function deleteSectionsCountry(singleRowData) {
     section = document.querySelector(`#${singleRowData.gsx$country.$t}`);
     console.log("[INFO] DELETED SECTION", document.querySelector(`#${singleRowData.gsx$country.$t}`));
 
@@ -159,6 +176,21 @@ function deleteSectionsPrice(singleRowData) {
     if (section != null) {
         section.parentNode.removeChild(section);
     }
+}
+
+function deleteSectionsLength() {
+    section = document.querySelector(`#lengthSection`);
+    console.log("[INFO] DELETED SECTION", document.querySelector(`#lengthSection`));
+
+    if (section != null) {
+        section.parentNode.removeChild(section);
+    }
+}
+
+function deleteSections(singleRowData){
+    deleteSectionsCountry(singleRowData);
+    deleteSectionsPrice(singleRowData);
+    deleteSectionsLength();
 }
 
 function addResort(jsonResort) {
@@ -182,21 +214,28 @@ function addResort(jsonResort) {
     //append template check for selected sort
     //TODO: doesn't 100% work find out why
     try {
-        if(document.querySelector("#sort").value == "Country"){
-                    let sectionToAdd = jsonResort.gsx$country.$t;
-                    document.querySelector('#' + sectionToAdd).appendChild(clone);
-        }
-        else if (document.querySelector("#sort").value == "Name") {
-                    let sectionToAdd = jsonResort.gsx$resort.$t;
-                    document.querySelector('#' + sectionToAdd).appendChild(clone);
-        }
-        else if (document.querySelector("#sort").value == "Price"){
-                    let sectionToAdd = jsonResort.gsx$skipass.$t;
-                    document.querySelector('#price' + sectionToAdd).appendChild(clone);
+        if (document.querySelector("#sort").value == "Country") {
+            let sectionToAdd = jsonResort.gsx$country.$t;
+            document.querySelector('#' + sectionToAdd).appendChild(clone);
+        } else if (document.querySelector("#sort").value == "Length") {
+            let sectionToAdd = "lengthSection";
+            document.querySelector('#' + sectionToAdd).appendChild(clone);
+        } else if (document.querySelector("#sort").value == "Price") {
+            let sectionToAdd = jsonResort.gsx$skipass.$t;
+            document.querySelector('#price' + sectionToAdd).appendChild(clone);
         }
     } catch (err) {
         console.log(err.message);
     }
+}
+
+const resortArray = [];
+function addResortLengthArray(jsonResort){
+    resortArray.push(jsonResort);
+    resortArray.sort( (a,b) => {
+        return parseInt(a.gsx$slopelength.$t) - parseInt(b.gsx$slopelength.$t);
+    });
+    console.log(resortArray);
 }
 
 //function for creating the extended description
@@ -216,13 +255,13 @@ function addExtendedDesc(clone, jsonResort) {
                 bounding.left >= 0 &&
                 bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                 bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            };
+            );
+        };
 
         showExtendedDetails(jsonResort);
 
         if (!isInViewport(document.querySelector('.extendedDesc'))) {
-            scrollTo(pageXOffset,pageYOffset+300);
+            scrollTo(pageXOffset, pageYOffset + 300);
         }
     });
 }
