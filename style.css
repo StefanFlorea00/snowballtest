@@ -76,12 +76,16 @@ nav ul {
 }
 
 nav ul li {
-
-    padding: 10px 30px;
-    transition: 0.3s;
 }
 
-nav ul li:hover {
+nav ul li a {
+    padding: 10px 30px;
+    transition: 0.3s;
+    text-decoration: none;
+    color:white;
+}
+
+nav ul li:hover a {
     background-color: white;
     color: #5B98D7;
 }
@@ -95,14 +99,12 @@ nav ul li:last-child {
 }
 
 #search {
-    width: 25rem;
+    width: 25vw;
     height: 2rem;
     border: 1.5px solid black;
     border-radius: 4px;
     padding: 5px;
     font-size: 1rem;
-    align-self: flex-end;
-    margin-left: auto;
 }
 
 .logoImg {
@@ -131,27 +133,24 @@ nav ul li:last-child {
 
 .searchSection {
     display: block;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .searchSection .filtering {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    width: 50%;
-    height: 7rem;
-    background-color: #e0e6ed;
+    width: 15rem;
+    height: 3rem;
+    background-color: #fff;
     transition: .3s all;
     text-align: left;
     padding: 1rem;
-    display: flex;
+    padding-bottom: 0;
+    display: inline-block;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-}
-
-.searchSection .filtering:hover {
-    height: 7rem;
 }
 
 .searchSection h2 {
@@ -161,11 +160,13 @@ nav ul li:last-child {
 }
 
 .searchSection .sort {
+    background-color: #eee;
     width: 8rem;
+    padding: 0.3rem;
     appearance: none;
     border: 1px solid #FFF;
     font-family: 'Open Sans';
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 .searchSection .filterItems {
@@ -376,26 +377,29 @@ footer > ul > li {
     justify-content: center;
 }
 
-.descButtons button {
+
+.descButtons a {
     margin: 0 1rem;
-    height: 3rem;
-    width: 10rem;
+    text-align: center;
+    height: 3.5rem;
+    width: 13rem;
+    line-height: 3;
     background-color: #eb8900;
     display: inline-block;
     cursor: pointer;
+    text-decoration: none;
     border: none;
     color: #ffffff;
     font-family: 'Open sans';
-    font-size: 1rem;
-    text-decoration: none;
+    font-size: 1.1rem;
     text-shadow: 0px 1px 0px #665c28;
 }
 
-.descButtons button:hover {
+.descButtons a:hover {
     background-color: #bd9b2a;
 }
 
-.descButtons button:active {
+.descButtons a:active {
     position: relative;
     top: 1px;
 }
@@ -412,6 +416,16 @@ footer > ul > li {
     grid-area: left;
 }
 
+.left h2{
+        margin: 0;
+    color: #999;
+}
+
+.left h1{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
 .right {
     display: flex;
     grid-area: right;
@@ -422,7 +436,6 @@ footer > ul > li {
 
 @media screen and (max-width:1350px) {
     .descWrapper {
-        background-color: lightblue;
         display: grid;
         grid-template-columns: 1fr 0fr;
         grid-template-areas: "left"

@@ -24,10 +24,10 @@
     <header>
         <nav>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li><img class="searchIcon" src="gfx/icons/search.png"></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li></li>
             </ul>
         </nav>
     </header>
@@ -47,14 +47,6 @@
                 <option value="Country">Country</option>
                 <option value="Price">Price</option>
             </select>
-            <div class="filterItems">
-                <input type="checkbox" name="filter" value="Filter1">
-                <label for="vehicle1"> Filter1</label><br>
-                <input type="checkbox" name="vehicle2" value="Filter2">
-                <label for="vehicle2"> Filter2</label><br>
-                <input type="checkbox" name="vehicle3" value="Filter3" checked>
-                <label for="vehicle3"> Filter3</label><br><br>
-            </div>
         </div>
     </section>
 
@@ -128,16 +120,17 @@
         <div class="descWrapper">
            <div class="left">
             <h1>Resort</h1>
+            <h2>Country</h2>
             <p class="resortDescription">Long description</p>
             <div class="resortIcons">
                 <figure><img class="child-friendly" src="gfx/icons/child_friendly_icon-03.png" alt="icon"><span class="tooltiptext">Child friendly</span></figure>
                 <figure><img class="ski-rental" src="gfx/icons/slope_height_new.png" alt="icon"><span class="tooltiptext">Slope height: <span class="tooltipheight"></span>km</span></figure>
                 <figure><img class="afterski" src="gfx/icons/slope_lenght_new.png" alt="icon"><span class="tooltiptext">Slope length: <span class="tooltiplength"></span>km</span></figure>
             </div>
-            <p class="extendedPrice">Skipass price <span></span>dkk/day</p>
+            <p class="extendedPrice">Skipass price <span></span>eur/week</p>
                 <div class="descButtons">
-                    <button>See more</button>
-                    <button>Resort Webpage</button>
+                    <a class="resortWebcamA" href="">Webcams</a>
+                    <a class="resortWebpageA" href="">Resort Webpage</a>
                 </div>
         </div>
         <div class="right">

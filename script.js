@@ -83,7 +83,7 @@ function createSectionsPrice(singleRowData) {
 
             const createdh2 = document.createElement("h2");
             createdh2.setAttribute("class", `sectionTitle`);
-            createdh2.textContent = `${uniqueSectionsPriceArray[i]} dkk`;
+            createdh2.textContent = `${uniqueSectionsPriceArray[i]} eur/week`;
             createdSection.appendChild(createdh2);
 
             console.warn("[INFO] ADDED SECTION ", uniqueSectionsPriceArray[i]);
@@ -270,6 +270,7 @@ function showExtendedDetails(jsonResort) {
     const extendedDesc = document.querySelector(".extendedDesc");
 
     extendedDesc.querySelector("h1").textContent = jsonResort.gsx$resort.$t;
+    extendedDesc.querySelector("h2").textContent = jsonResort.gsx$country.$t;
     extendedDesc.querySelector(".modal-green span").textContent = jsonResort.gsx$greenslopes.$t;
     extendedDesc.querySelector(".modal-blue span").textContent = jsonResort.gsx$blueslopes.$t;
     extendedDesc.querySelector(".modal-red span").textContent = jsonResort.gsx$redslopes.$t;
@@ -277,6 +278,8 @@ function showExtendedDetails(jsonResort) {
     extendedDesc.querySelector(".resortMap").src = jsonResort.gsx$mapimage.$t;
     extendedDesc.querySelector(".extendedPrice span").textContent = jsonResort.gsx$skipass.$t;
     extendedDesc.querySelector(".resortDescription").textContent = jsonResort.gsx$about.$t;
+    extendedDesc.querySelector(".resortWebpageA").href = jsonResort.gsx$homepage.$t;
+    extendedDesc.querySelector(".resortWebcamA").href = jsonResort.gsx$webcamera.$t;
     extendedDesc.querySelector(".resortIcons figure .tooltiptext .tooltipheight").textContent = jsonResort.gsx$maxheight.$t;
     extendedDesc.querySelector(".resortIcons figure .tooltiptext .tooltiplength").textContent = jsonResort.gsx$slopelength.$t;
 
