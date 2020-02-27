@@ -107,6 +107,19 @@ nav ul li:last-child {
     font-size: 1rem;
 }
 
+.logoNav{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    width: 6rem;
+    transform: translate(-300%, -50%);
+    font-size: 4rem;
+    color: white;
+    font-family: 'Racing Sans One';
+    text-shadow: 2px 2px #E0E6ED;
+}
+
 .logoImg {
     transform: translate(0px, -20%);
 }
